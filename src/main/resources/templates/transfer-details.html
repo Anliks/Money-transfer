@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Транзакции</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+</div>
+<div class="container mt-5">
+
+  <div th:each="el : ${post}" class="alert alert-info mt-2">
+    <h1 th:text="${el.name}"/>
+    <p> <b>Баланс на счете</b> <span th:text="${el.bank_account}"/></p>
+    <p><b>Количество операций</b> <span th:text="${el.number_ofOperations}"/></p>
+
+    <a th:href="'/transfer/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a><br>
+    <form th:action="'/transfer/' + ${el.id} + '/remove'" method="post"><br>
+      <button class="btn btn-warning" type="submit">Удалить</button><br>
+    </form>
+  </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

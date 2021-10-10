@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+</div>
+<div class="container mt-5 mb-5">
+    <h1>Переводы(Введите ID, Введите Сумму)</h1>
+    <div th:each="el : ${post}">
+        <form method="post">
+            <input type="text" th:value="${el.id}" name="name" placeholder="Введите id кому" class="form-control"><br>
+            <input type="text" th:value="${el.bank_account}" name="bank_account" placeholder="Введите сумму превода" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Обновить</button>
+        </form>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>
